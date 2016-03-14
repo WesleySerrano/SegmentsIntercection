@@ -1,0 +1,60 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Intersection</title>
+    <script id="vertex-shader" type="x-shader/x-vertex">
+attribute vec4 vPosition;
+uniform vec4 color;
+
+varying vec4 vColor;
+
+void
+main()
+{
+    vColor = color;
+    gl_Position = vPosition;
+}
+</script>
+
+    <script id="fragment-shader" type="x-shader/x-fragment">
+precision mediump float;
+
+varying vec4 vColor;
+void
+main()
+{
+    gl_FragColor = vColor;
+}
+</script>
+
+    <script type="text/javascript" src="../Common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../Common/initShaders.js"></script>
+    <script type="text/javascript" src="../Common/MV.js"></script>
+    <script type="text/javascript" src="intersection.js"></script>
+</head>
+
+<body>
+<table>
+    <tr>
+        <td>
+<canvas id="gl-canvas" width="800" height="800">
+    Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+        </td>
+
+        <td>
+<table border="1">
+    <tr><th colspan="4">V1</th></tr>
+    <tr><td>X: <input id = "V1X" type = "range" step="0.01" min = -1 max = 1 value="-0.5" oninput="updateDisplay(id)"></td><td id = "V1XDisplay"></td><td>Y: <input id = "V1Y" type = "range" step="0.01" min = -1 max = 1 value="-0.5" oninput="updateDisplay(id)"></td><td id = "V1YDisplay"></td></tr>
+    <tr><th colspan="4">V2</th></tr>
+    <tr><td>X: <input id = "V2X" type = "range" step="0.01" min = -1 max = 1 value="0.5" oninput="updateDisplay(id)"></td><td id = "V2XDisplay"></td><td>Y: <input id = "V2Y" type = "range" step="0.01" min = -1 max = 1 value="0.5" oninput="updateDisplay(id)"> </td><td id = "V2YDisplay"></td></tr>
+    <tr><th colspan="4">V3</th></tr>
+    <tr><td>X: <input id = "V3X" type = "range" step="0.01" min = -1 max = 1 value="0.5" oninput="updateDisplay(id)"></td><td id = "V3XDisplay"></td><td>Y: <input id = "V3Y" type = "range" step="0.01" min = -1 max = 1 value="-0.5" oninput="updateDisplay(id)"></td><td id = "V3YDisplay"></td></tr>
+    <tr><th colspan="4">V4</th></tr>
+    <tr><td>X: <input id = "V4X" type = "range" step="0.01" min = -1 max = 1 value="-0.5" oninput="updateDisplay(id)"></td><td id = "V4XDisplay"></td><td>Y: <input id = "V4Y" type = "range" step="0.01" min = -1 max = 1 value="0.5" oninput="updateDisplay(id)"></td><td id = "V4YDisplay"></td></tr>
+    </td>
+    </tr>
+</table>
+</table>
+</body>
+</html>
